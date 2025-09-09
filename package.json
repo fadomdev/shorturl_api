@@ -22,6 +22,9 @@
     "url": "https://github.com/fadomdev/shorturl_api/issues"
   },
   "homepage": "https://github.com/fadomdev/shorturl_api#readme",
+  "engines": {
+    "node": "20.x"
+  },
   "dependencies": {
     "@types/dotenv": "^6.1.1",
     "bcrypt": "^6.0.0",
