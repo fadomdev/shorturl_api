@@ -2,7 +2,7 @@ import express, { Request, Response } from 'express'
 import cors from 'cors'
 import helmet from 'helmet'
 import dotenv from 'dotenv'
-import authRouter from './routes/v1/auth'
+import authRouter from './routes/v1/auth.js'
 // import shortenRouter from './routes/v1/shorten' // habilitar cuando exista en TS
 
 // Cargar variables de entorno
