@@ -1,5 +1,9 @@
 {
     "version": 2,
-    "buildCommand": "",
-    "ignoreCommand": ""
+    "rewrites": [
+        {
+            "source": "/(.*)",
+            "destination": "/api"
+        }
+    ]
 }
