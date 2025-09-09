@@ -1,6 +1,6 @@
 import request from 'supertest'
 import { describe, it, expect, vi, beforeEach } from 'vitest'
-import app from '../index.js'
+import app from '../src/index.js'
 
 // Mock del módulo db
 vi.mock('../config/db.js', () => {
@@ -33,7 +33,7 @@ vi.mock('../config/db.js', () => {
   }
 })
 
-import db from '../config/db.js'
+import db from '../src/config/db.js'
 
 describe('POST /api/v1/auth/register', () => {
   beforeEach(() => {

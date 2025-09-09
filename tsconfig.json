@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "paths": {
+      "@/*": ["*"], // @/ para src/
+      "@/types/*": ["types/*"],
+      "@/models/*": ["models/*"],
+      "@/controllers/*": ["controllers/*"]
+    },
+    "target": "ES2020",
+    "module": "ESNext",
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "strict": true,
+    "moduleResolution": "node", // O "bundler" si usas bundler
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules"]
+}

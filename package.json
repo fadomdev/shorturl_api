@@ -5,10 +5,11 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "node index.js",
-    "dev": "node --watch index.js",
+    "start": "node dist/index.js",
+    "dev": "tsx --watch src/index.ts",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "build": "tsc"
   },
   "repository": {
     "type": "git",
@@ -22,15 +23,31 @@
   },
   "homepage": "https://github.com/fadomdev/shorturl_api#readme",
   "dependencies": {
+    "@types/dotenv": "^6.1.1",
     "bcrypt": "^6.0.0",
     "cors": "^2.8.5",
     "dotenv": "^17.2.1",
     "express": "^5.1.0",
     "helmet": "^8.1.0",
-    "pg": "^8.16.3"
+    "pg": "^8.16.3",
+    "winston": "^3.17.0",
+    "zod": "^4.1.5"
   },
   "devDependencies": {
+    "@types/bcrypt": "^6.0.0",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.3",
+    "@types/helmet": "^0.0.48",
+    "@types/node": "^24.3.1",
+    "@types/pg": "^8.15.5",
+    "@types/supertest": "^6.0.3",
+    "@types/winston": "^2.4.4",
     "supertest": "^7.1.4",
+    "ts-node": "^10.9.2",
+    "ts-node-dev": "^2.0.0",
+    "tsconfig-paths": "^4.2.0",
+    "tsx": "^4.20.5",
+    "typescript": "^5.9.2",
     "vitest": "^3.2.4"
   }
 }

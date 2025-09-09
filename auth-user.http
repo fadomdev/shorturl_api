@@ -3,6 +3,16 @@ Content-Type: application/json
 
 {
   "name": "Juan",
-  "email": "juan@example.com",
+  "email": "juan5@example.com",
+  "password": "Secret123"
+}
+
+###
+
+POST http://localhost:3000/api/v1/auth/login
+Content-Type: application/json
+
+{
+  "email": "juan5@example.com",
   "password": "Secret123"
 }

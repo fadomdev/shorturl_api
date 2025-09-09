@@ -1,8 +1,8 @@
-import express from 'express'
+import express, { Request, Response } from 'express'
 import cors from 'cors'
 import helmet from 'helmet'
 import dotenv from 'dotenv'
-import shortenRouter from './routes/v1/shorten.js'
+//import shortenRouter from './routes/v1/shorten.js'
 import authRouter from './routes/v1/auth.js'
 
 // Cargar variables de entorno desde .env
@@ -17,7 +17,17 @@ app.use(cors({ origin: process.env.APP_URL || 'http://localhost' }))
 app.use(helmet())
 
 // Middleware para parsear JSON
-app.use(express.json())
+app.use(
+  express.json({
+    verify: (req: Request, res: Response, buf) => {
+      try {
+        JSON.parse(buf.toString())
+      } catch (e) {
+        return res.status(400).json({ error: 'JSON inválido en la solicitud' })
+      }
+    }
+  })
+)
 
 // Puerto del servidor
 const PORT = process.env.PORT || 3000
@@ -27,7 +37,7 @@ const APP_URL = process.env.APP_URL || 'http://localhost'
 
 // Crear router principal para /api/v1
 const apiRouter = express.Router()
-apiRouter.use('/shorten', shortenRouter)
+//apiRouter.use('/shorten', shortenRouter)
 apiRouter.use('/auth', authRouter)
 app.use('/api/v1', apiRouter)
 
@@ -40,8 +50,12 @@ app.get('/', (req, res) => {
   })
 })
 
-// Iniciar servidor
+// Manejo de rutas no encontradas
+app.use((req, res, next) => {
+  res.status(404).json({ error: 'Ruta no encontrada' })
+})
 
+// Iniciar servidor
 if (process.env.NODE_ENV !== 'test') {
   app.listen(PORT, () => {
     console.log(`Servidor corriendo en ${APP_URL}:${PORT}`)
@@ -49,5 +63,3 @@ if (process.env.NODE_ENV !== 'test') {
 }
 
 export default app
-
-// Exportar app para pruebas
