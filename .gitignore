@@ -1,2 +1,5 @@
+dist/
+logs/
 node_modules/
 .env    
+.http
